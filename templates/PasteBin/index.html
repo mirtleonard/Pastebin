@@ -8,18 +8,19 @@
   <h1 class="d-flex justify-content-center m-3">PasteBin</h1>
   <div class="d-flex">
     <div class="container">
-      <div class="form-group m-5">
+      <form action="{% url 'SavePaste' %}" method="post" class="form-group m-5">
+        {% csrf_token %}
         <label>Title</label>
-        <input type="email" class="form-control my-2" id="title">
+        <input name="title" class="form-control my-2" id="title">
         <label>Text</label>
-        <textarea class="form-control my-2" id="text" rows="15"></textarea>
-        <button class="btn btn-success d-flex ml-auto my-4">Save</button>
-      </div>
+        <textarea name="text" class="form-control my-2" id="text" rows="15"></textarea>
+        <input type="submit" value="Save Paste" class="btn btn-success d-flex ml-auto my-4"></input>
+      </form>
     </div>
     <div class="container d-flex justify-content-center">
       <div style="width : 50%">
         <h4 style="text-align: center"> Last pastes:</h4>
-        <div class="d-flex flex-column" style="overflow-x : auto; max-height : 50 vh">
+        <div class="d-flex flex-column" style="overflow-x : auto; max-height : 60vh">
           {% if latestPasteList %}
           {% for paste in latestPasteList%}
           <div class="card m-2">
@@ -29,7 +30,7 @@
           </div>
           {%endfor%}
           {% else %}
-          <p> No polls are available.</p>
+          <h3 class="d-flex justify-content-center"> No pastes are available</h3>
           {% endif %}
         </div>
       </div>
