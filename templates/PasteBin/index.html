@@ -1,29 +1,30 @@
 <html>
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <h1 class="d-flex justify-content-center m-3">PasteBin</h1>
-    <div class="d-flex">
-      <div class="container">
-        <div class="form-group m-5">
-          <label>Title</label>
-          <input type="email" class="form-control my-2" id="title">
-          <label>Text</label>
-          <textarea class="form-control my-2" id="text" rows="15"></textarea>
-          <button class="btn btn-success d-flex ml-auto my-4">Save</button>
-        </div>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <h1 class="d-flex justify-content-center m-3">PasteBin</h1>
+  <div class="d-flex">
+    <div class="container">
+      <div class="form-group m-5">
+        <label>Title</label>
+        <input type="email" class="form-control my-2" id="title">
+        <label>Text</label>
+        <textarea class="form-control my-2" id="text" rows="15"></textarea>
+        <button class="btn btn-success d-flex ml-auto my-4">Save</button>
       </div>
-      <div class="container d-flex justify-content-center">
-        <h4>Last pastes:</h4>
-        <div class="d-flex flex-column m-5" style="width : 40rem;">
+    </div>
+    <div class="container d-flex justify-content-center">
+      <div style="width : 50%">
+        <h4 style="text-align: center"> Last pastes:</h4>
+        <div class="d-flex flex-column" style="overflow-x : auto; max-height : 50 vh">
           {% if latestPasteList %}
           {% for paste in latestPasteList%}
-          <div class="card m-2" style="">
+          <div class="card m-2">
             <div class="card-header">{{paste.title}}</div>
-            <div data-offset="50" class="card-body">{{paste.text}}</div>
+            <div data-offset="50" class="card-body" style="overflow-x : auto; max-height : 10vh ">{{paste.text}}</div>
             <div class="card-footer">{{paste.date}}</div>
           </div>
           {%endfor%}
@@ -31,9 +32,10 @@
           <p> No polls are available.</p>
           {% endif %}
         </div>
-        </div>
-        
       </div>
     </div>
-  </body>
-  </html>
+
+  </div>
+</div>
+</body>
+</html>
