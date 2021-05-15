@@ -14,4 +14,4 @@ def index(request):
 def SavePaste(request):
     paste = Paste(title = request.POST.get('title'), text = request.POST.get('text'), date =  timezone.now());
     paste.save()
-    return index(request)
+    return HttpResponseRedirect(reverse('index'))
