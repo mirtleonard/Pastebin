@@ -8,10 +8,14 @@ from django.utils import timezone
 
 def index(request):
     latestPasteList = Paste.objects.order_by('-date')
-    context = {'latestPasteList' : latestPasteList,}
+    context = {'latestPasteList' : latestPasteList}
     return render(request, 'PasteBin/index.html', context)
 
 def SavePaste(request):
     paste = Paste(title = request.POST.get('title'), text = request.POST.get('text'), date =  timezone.now());
     paste.save()
     return HttpResponseRedirect(reverse('index'))
+
+def detail(request, paste_id):
+    paste = get_object_or_404(Paste, pk=paste_id)
+    return render(request, 'PasteBin/detail.html', {'paste': paste})

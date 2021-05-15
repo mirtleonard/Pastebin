@@ -24,7 +24,7 @@
           {% if latestPasteList %}
           {% for paste in latestPasteList%}
           <div class="card m-2">
-            <div class="card-header">{{paste.title}}</div>
+            <div class="card-header"><a href="{{paste.id}}">{{paste.title}}</a></div>
             <div data-offset="50" class="card-body" style="overflow-x : auto; max-height : 10vh ">{{paste.text}}</div>
             <div class="card-footer">{{paste.date}}</div>
           </div>
