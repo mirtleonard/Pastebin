@@ -1,7 +1,14 @@
 <html>
   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   </head>
   <body>
-    <h1>{{paste.title}}</h1>
+    <div class="container d-flex justify-content-center">
+      <div class="card m-2">
+        <div class="card-header">{{paste.title}}</div>
+        <div data-offset="50" class="card-body">{{paste.text}}</div>
+        <div class="card-footer">{{paste.date}}</div>
+      </div>
+    </div>
   </body>
-</html>
+  </html>
